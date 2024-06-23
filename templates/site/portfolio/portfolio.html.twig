@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <div id="portfolio" class="conteudo container">
+       
+        <h3>PORTFOLIO</h3>
+       
+		{% if id == 0 %}
+		<div class="row">
+			{% for key, item in work %}
+                <div class="col-md-6 item">
+                    {% if item.img != '' %}
+						<img src="{{ asset('assets/images/work/'~ item.img) }}">
+					{% else %}
+						<div style="height: 220px; width: 400px; border: 1px solid grey">no image yet</div>
+					{% endif %}
+                    
+					<a href="">
+                        <div class="over">
+                        <br/>
+							<a href="/portfolio/{{key}}">{{ item.client }}</a>
+        						<h3>{{ item.job }}</h3>
+        					</div>
+                    </a>
+                </div>
+            {% endfor %}
+            
+    		</div>
+        
+		{% else %}
+		<a href="/portfolio" class="back"><i class="fas fa-backward" aria-hidden="true"></i> back</a>
+			
+		<div class="row">
+			
+			<div class="col-lg-4">
+				
+				{% if work.img is defined %}
+					<img src="{{ asset('assets/images/work/'~ work.img) }}">
+				{% else %}
+					no image yet
+				{% endif %}
+			</div>
+			
+			<div class="col-lg-8">
+				<h2>{{ work.client }}</h2>
+				<p>{{ work.job }}</p>
+				<p>{{ work.year }}</p>
+				
+        			
+			</div>
+			
+		</div>	
+			<div class="row">
+				<div class="col-md-12"><p><b>description</b> {{ work.description }}</p></div>
+				<div class="col-md-12">
+					<p><b>Tech used:</b></p>
+				<ul>
+				{% for key, w in work.tech.awsome %}
+					<li title="{{ work.tech.term[key] }}"><i class="{{ w }}" aria-hidden="true" ></i></li>
+        			{% endfor %}	
+        			{% if item.link is defined %}
+        				<li><a href="{{ item.link }}">{{ item.link }}</a></li>
+        			{% endif %}
+        			</ul>
+        			</div>
+			</div>
+		{% endif %}
+    
+		<div style="clear:both"></div>
+{% endblock %}
+
+{% block documentReady %}
+
+{% endblock documentReady %}

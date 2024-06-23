@@ -1,0 +1,42 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+# site
+
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+about:
+    path: /about
+    controller: App\Controller\HomeController::about
+cv:
+    path: /cv
+    controller: App\Controller\HomeController::cv
+contact:
+    path: /contact
+    controller: App\Controller\HomeController::contact
+
+spotify:
+    path: /spotify
+    controller: App\Controller\HomeController::spotify
+
+# carros
+
+cars:
+    path: /private/cars
+    controller: App\Controller\CarrosController::index
+
+carro_add:
+    path: /private/carro/add
+    controller: App\Controller\CarrosController::add
+
+carro_edit:
+    path: /private/carro/edit/{id}
+    controller: App\Controller\CarrosController::edit
+
+carro_show:
+    path: /private/carro/show/{id}
+    controller: App\Controller\CarrosController::show

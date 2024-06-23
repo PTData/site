@@ -1,0 +1,42 @@
+body {
+    background-color: grey;
+}
+
+.row {
+    min-height: 200px;
+}
+
+ul {
+  list-style-type: none;
+  margin:0;
+  padding:10px 0 10px 0;
+}
+
+ul li span{
+ font-weight: 200;
+}
+
+h3 a {
+    text-decoration: none;
+    color: black;
+}
+
+.col-sm-6.img div.image {
+    width: 350px;
+    position: relative;
+    text-align: center;
+    background-color: white;
+}
+
+.col-sm-6.img div.image a{
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+.col-sm-6.img div.image p{
+    /*position: absolute;
+    bottom: 8px;
+    left: 16px;*/
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <div id="about" class="conteudo container">
+        
+        <h3>ABOUT ME</h3>
+		<p>{{ about }}</p>
+		
+		<ul>
+		{% for item in todo %}
+            <li>{{ item }}</li>
+       	{% endfor %}
+       	</ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% block content %} 
+<main>
+	<div class="container margin-top-2rem margin-bottom-2rem">
+		<br/>
+		<div class="row">
+		{% for car in cars %}
+	        
+	        <div class="text col-sm-6 img">
+
+			    
+			    <div class="image">
+			    	<image src="{{ imageFolder }}/{{ car.url }}" width="350">
+			    	<a href="{{ path('carro_show', {'id': car.id}) }}">{{ car.brand|e }} <b>{{ car.model|e }}</b></a>
+			    	<p>€ <b>{{ car.total_price }}</b></p>
+			    </div>
+				
+			    	
+			</div>
+
+	    {% endfor %}
+		</div>
+
+	</div>
+</main>
+{% endblock %}
+{% endblock %}

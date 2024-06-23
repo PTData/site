@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<div id="curriculum" class="conteudo container">
+	<h3 >Curriculum Vitae</h3>
+			
+	{% if id == 0 %}
+	<div class="row">
+
+			{% for key, item in content %}
+                <div class="col-md-12 item">
+                		
+                <h4><a href="curriculum/{{ key|e }}">{{ item.employee|e }}</a></h4>
+                		<p style="font-size: 12px">
+                		{% if(item.datestart|date("Y")) != item.dateend|date("Y")  %}
+                        {{ item.datestart|date("M-Y") }}  {{ item.dateend|date("M-Y") }}
+                		{% else %}
+                        {{ item.datestart|date("M") }} - {{ item.dateend|date("M Y") }}
+                    {% endif %}
+                    </p>
+                    <p class="job">{{ item.job }}</p>
+                    <ul class="techs">
+                    {% for k,t in item.tech.awsome %}
+                    		<li title="{{ item.tech.term[k] }}"><i class="{{ t }}"></i></li>
+                    {% endfor %}
+                    </ul>
+                    <div style="clear:both"></div>
+                </div>
+            {% endfor %}
+	</div>    
+        {% else %}
+        <div class="row">
+        		<div class="col-lg-12">
+        		<a href="/curriculum" class="back"><i class="fas fa-backward" aria-hidden="true"></i> back</a>
+        		</div>
+			<div class="col-lg-12 detail">
+			
+				<h2>{{ content.employee }}, <span class="city">{{ content.city }}</span></h2>
+				<span class="date">({{ content.datestart|date("M-Y") }} {{ content.dateend|date("M-Y") }})</span>
+				<br/><br/>
+				<p class="employee">{{ content.enterprise }}</p>
+				<br/><br/>
+				<p class="job">
+					{{ content.job }} <br/>
+				</p>
+				<p> {{ content.function }}</p>
+				
+				<ul>
+				{% for key, w in content.tech.awsome %}
+					<li title="{{ content.tech.term[key] }}"><i class="{{ w }}" aria-hidden="true" ></i></li>
+        			{% endfor %}	
+        			</ul>
+			</div>
+        		
+		</div>
+        {% endif %}
+    		
+</div>
+{% endblock %}

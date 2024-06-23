@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% block content %} 
+<main>
+	<div class="container margin-top-2rem margin-bottom-2rem">
+		
+			<a href="{{ path('carro_edit', {'id': car.id}) }}">Edit	</a>
+		
+		<div class="row">
+			<div class="text col-sm-12">
+				<h3><a href="{{ car.url}}" target="_blank">{{ car.brand|e }} <b>{{ car.model|e }}</b></a></h3>
+				<p>{{ car.getEngineModel() }}</p>
+	        </div>
+	        
+		    <div class="text col-sm-6">
+		    	<ul>
+		    		<li>Caracteristicas</li>
+					<li><span>Config: </span> {{ car.getSubModel() }} </li>
+					<li><span>Fuel: </span>{{ car.fuel|e }} </li>
+					<li><span>Cilindrada: </span>{{ car.cc|e }}</li>
+					<li><span>Cx Vel: </span>{{ car.shifts|e }}</li>
+					<li><span>Cavalos: </span>{{ car.power|e }} CV</li>
+					<li><span>Co2: </span>{{ car.co2 }}</li>
+					<li><span>Consumo: </span>{{ car.consume }}</li>
+		    	</ul>
+		    	
+		    </div>
+
+		    <div class="text col-sm-6">
+		    	<ul>
+		    		<li>Valores</li>
+					<li><span>Mensalidade:</span> €{{ values.getMonthlyPayment() }} </li>
+					<li><span>Preço: </span>€{{ values.getTotalPrice() }} </li>
+					<li><span>Notas: </span>{{ car.notes }}</li>
+		    	</ul>
+		    </div>
+
+
+		    <div class="text col-sm-12">
+
+		    	{% for image in images %}
+		    		<div class="col-md-4" id="image_id_{{ image.id }}">
+					
+                    	<img class="img-fluid" src="{{ imageFolder }}/{{ image.url }}" width="550">
+
+        			</div>
+        		{% endfor %}
+		    	
+		    </div>
+
+		</div>
+
+	</div>
+</main>
+{% endblock %}
+{% endblock %}

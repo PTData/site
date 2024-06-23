@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Pedro Data">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}  {% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+		
+        {% block body %}
+        <div id="wrapper" ng-controller="Controller">
+
+            {% include 'menu.html.twig' %}
+            <div class="container" id="page-content-wrapper">
+        		{% block content %}{% endblock %}
+            </div>
+    
+            
+            {% block footer %}{% endblock %}
+        </div>
+
+        {% endblock %}
+		        
+		
+        
+    </body>
+</html>

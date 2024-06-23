@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <div id="portfolio" class="conteudo container">
+       
+        <h3>PORTFOLIO</h3>
+        <div class="row">
+		{% if id == 0 %}
+			{% for key, item in work %}
+                <div class="col-md-6">
+                    {% if item.img != '' %}
+						<a href="/portfolio/{{key}}"><img src="{{ asset('assets/images/work/'~ item.img) }}"></a>
+					{% else %}
+						<div style="height: 220px; width: 400px; border: 1px solid grey">no image yet</div>
+					{% endif %}
+                    
+					<a href="/portfolio/{{key}}">
+                        <div class="over">
+							<a href="/portfolio/{{key}}">{{ item.client }}</a>
+        						{{ item.job }}
+        						{{ item.description }}
+        					</div>
+                    </a>
+                </div>
+            {% endfor %}
+            
+        
+		{% else %}
+			<div class="col-lg-4">
+				{% if work.img is defined %}
+					<img src="{{ asset('assets/images/work/'~ work.img) }}">
+				{% else %}
+					no image yet
+				{% endif %}
+			</div>
+			<div class="col-lg-8">
+				{{ work.client }}
+				{{ work.job }}
+				{{ work.year }}
+				<ul>
+				{% for w in work.tech %}
+					<li>{{ w }}</li>
+            			{# <img width="50" src="{{ asset('assets/images/work/tecnologias/') ~ w }}.png" alt="{{ w }}"> #}
+        			{% endfor %}	
+        			{% if item.link is defined %}
+        				<li><a href="{{ item.link }}">{{ item.link }}</a></li>
+        			{% endif %}
+        			</ul>
+			</div>
+			<a href="/portfolio">back</a>
+			
+	
+		{% endif %}
+
+		</div>
+		
+		
+    </div>
+    
+		<div style="clear:both"></div>
+{% endblock %}
+
+{% block documentReady %}
+    $(".carousel").carousel()
+{% endblock documentReady %}
