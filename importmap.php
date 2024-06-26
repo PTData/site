@@ -25,4 +25,7 @@ return [
     '@popperjs/core' => [
         'version' => '2.11.8',
     ],
+    'fontawesome' => [
+        'version' => '5.6.3',
+    ],
 ];

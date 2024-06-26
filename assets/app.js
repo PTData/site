@@ -4,13 +4,19 @@
  * This file will be included onto the page via the importmap() Twig function,
  * which should already be in your base.html.twig.
  */
+
+import 'bootstrap';
+import $ from 'jquery';
+import 'fontawesome';
 import './styles/bootstrap.min.css';
 import './styles/app.css';
-import 'bootstrap';
-import $ from 'jquery'
+import './styles/fontawesome/css/fontawesome.css';
+import './styles/fontawesome/css/brands.css';
+import './styles/fontawesome/css/solid.css';
+
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    console.log( "ready, not!" );
 });
 
 

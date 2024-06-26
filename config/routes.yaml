@@ -13,8 +13,13 @@ about:
     path: /about
     controller: App\Controller\HomeController::about
 cv:
-    path: /cv
+    path: /curriculum-vitae/{id}
     controller: App\Controller\HomeController::cv
+    defaults:
+      id: 0
+    requirements:
+      id: '\d+'
+
 contact:
     path: /contact
     controller: App\Controller\HomeController::contact

@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: #fff;
 }
 
 .row {
@@ -12,13 +12,13 @@ ul {
   padding:10px 0 10px 0;
 }
 
-ul li span{
- font-weight: 200;
-}
-
-h3 a {
+a {
     text-decoration: none;
     color: black;
+}
+
+ul li span{
+ font-weight: 200;
 }
 
 .col-sm-6.img div.image {
@@ -39,4 +39,25 @@ h3 a {
     /*position: absolute;
     bottom: 8px;
     left: 16px;*/
+}
+
+.conteudo {
+    width: 100%;
+}
+
+.conteudo .row.curriculum {
+    padding: 40px 0;
+}
+
+.conteudo .row.curriculum .item{
+    padding: 10px 0;
+}
+
+
+.techs {
+
+}
+
+.techs span{
+    font-size: 11px;
 }

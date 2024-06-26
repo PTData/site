@@ -30,4 +30,14 @@
     array (
     ),
   ),
+  'fontawesome' => 
+  array (
+    'version' => '5.6.3',
+    'dependencies' => 
+    array (
+    ),
+    'extraFiles' => 
+    array (
+    ),
+  ),
 );
