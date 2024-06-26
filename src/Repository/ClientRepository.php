@@ -34,6 +34,7 @@ class ClientRepository extends ServiceEntityRepository
             inner join client_technology ct on ct.client_id = c.id
             inner join technology t on t.id = ct.technology_id
             group by c.id
+            order by c.id desc
             ';
         $stmt = $conn->prepare($sql);
         #$stmt->bindValue('category', $category->getId());
